@@ -1,0 +1,15 @@
+{
+  "name": "get_doctors",
+  "version": "1.0.0",
+  "description": "Scrape quebec healthcare websites to make a map",
+  "main": "get_quebec_doc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
