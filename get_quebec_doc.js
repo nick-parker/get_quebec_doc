@@ -17,6 +17,10 @@ const getClinicPages = async () => {
 }
 
 
+const strip_white = (s) => {
+    return s.replace(/\s+/g, ' ').replace(/(^\s+)|(\s+$)/g, '')
+}
+
 const getClinics = async (pages) => {
     const address_selector = '#info-generale > div > p:nth-child(3)'
     const name_selector = '#zone-titre-ressource > h1'
@@ -27,9 +31,8 @@ const getClinics = async (pages) => {
                 page
             );
             const $ = cheerio.load(data);
-            const raw_address = $(address_selector).first().text();
-            const address = raw_address.replace(/\s+/g, ' ')
-            const name = $(name_selector).first().text().replace(/\s+/g, ' ');
+            const address = strip_white($(address_selector).first().text());
+            const name = strip_white($(name_selector).first().text());
             return {address, name}
         } catch(error) {
             console.log(page)
